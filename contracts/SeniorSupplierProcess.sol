@@ -9,13 +9,13 @@ contract SeniorSupplierProcess is Ownable {
   // Emitted when the stored value changes
   event NewFeedback(string newFeedback);
 
-  // Stores a new value in the contract
+  // Stores a new Feedback in the contract
   function newFeedback(string memory _newFeedback) public onlyOwner {
     feedback = _newFeedback;
     emit NewFeedback(_newFeedback);
   }
 
-  // Reads the last stored value
+  // Reads the last stored Feedback
   function retrieve() public view returns (string memory) {
     return feedback;
   }

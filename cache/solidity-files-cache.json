@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/thundermarks/Documents/Public Recruitment DAO/contracts/SeniorSupplierProcess.sol": {
-      "lastModificationDate": 1666092435010,
-      "contentHash": "1130c894486379f72b386819cbc23817",
+      "lastModificationDate": 1666863015136,
+      "contentHash": "14072f781f3df898adb9d3d295256aea",
       "sourceName": "contracts/SeniorSupplierProcess.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1030,8 +1030,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public Recruitment DAO/contracts/governance/GovernanceProtocol.sol": {
-      "lastModificationDate": 1666092435010,
-      "contentHash": "25188b61b296c69c891f8d14d0741e18",
+      "lastModificationDate": 1666863015144,
+      "contentHash": "57d75940e73b976bed6a9eb98c4992a6",
       "sourceName": "contracts/governance/GovernanceProtocol.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1072,7 +1072,8 @@
       "artifacts": [
         "AdministrativeAccessControlInterface",
         "AdministrativeInterface",
-        "GovernanceProtocol"
+        "GovernanceProtocol",
+        "SupplierProcessInterface"
       ]
     },
     "/home/thundermarks/Documents/Public Recruitment DAO/node_modules/@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol": {
@@ -1384,8 +1385,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public Recruitment DAO/contracts/governance/GovernanceToken.sol": {
-      "lastModificationDate": 1666092435010,
-      "contentHash": "756f3a1e082bed2c5ea545fcdafcffb5",
+      "lastModificationDate": 1666863015144,
+      "contentHash": "41427786e68b411dd66a6d6d31d8618f",
       "sourceName": "contracts/governance/GovernanceToken.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1422,8 +1423,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public Recruitment DAO/contracts/board_administration/AdministrativeAccessControl.sol": {
-      "lastModificationDate": 1666092435010,
-      "contentHash": "cbe7d13402d17966f09e1a6bcb6ace4f",
+      "lastModificationDate": 1666863015144,
+      "contentHash": "fae4cb85e5b9e662b006ec82bdf04342",
       "sourceName": "contracts/board_administration/AdministrativeAccessControl.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1499,8 +1500,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public Recruitment DAO/contracts/board_administration/AdministrativeRecruitmentProcess.sol": {
-      "lastModificationDate": 1666092435010,
-      "contentHash": "daa7b53223d38050f77dc2bd28a3f57e",
+      "lastModificationDate": 1666863015144,
+      "contentHash": "7af369f8a831b585c0029ab7bffbc6d3",
       "sourceName": "contracts/board_administration/AdministrativeRecruitmentProcess.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1537,8 +1538,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public Recruitment DAO/contracts/SupplierProcess.sol": {
-      "lastModificationDate": 1666092435010,
-      "contentHash": "3e8dc380096c4e4111784847ff50a410",
+      "lastModificationDate": 1666863015136,
+      "contentHash": "fc53c583dffc49c60bd068242d4ff941",
       "sourceName": "contracts/SupplierProcess.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1565,13 +1566,13 @@
         }
       },
       "imports": [
+        "@openzeppelin/contracts/access/AccessControl.sol",
         "@openzeppelin/contracts/access/Ownable.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "AdministrativeAccessControlInterface",
         "SupplierProcess"
       ]
     }

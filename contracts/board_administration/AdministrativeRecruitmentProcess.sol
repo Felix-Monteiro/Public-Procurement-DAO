@@ -9,13 +9,13 @@ contract AdministrativeRecruitmentProcess is Ownable {
   // Emitted when the stored value changes
   event NewRecruitment(string newContest);
 
-  // Stores a new value in the contract
+  // Stores a new Recruitment Contest in the contract
   function newContest(string memory _newContest) public onlyOwner {
     contest = _newContest;
     emit NewRecruitment(_newContest);
   }
 
-  // Reads the last stored value
+  // Reads the last stored Recruitment Contest 
   function retrieve() public view returns (string memory) {
     return contest;
   }
