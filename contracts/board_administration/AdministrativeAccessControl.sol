@@ -9,8 +9,7 @@ contract AdministrativeAccessControl is AccessControl, Ownable {
     bytes32 public constant BOARD_MEMBER = keccak256("BOARD_MEMBER");
     bytes32 public constant SUPPLIER_MEMBER = keccak256("SUPPLIER_MEMBER");
 
-    /************** Roles Structures **************/
-
+    // Structures of each Role
     struct Board_Member {
         string name;
         address boardMemberAddress;
@@ -24,16 +23,16 @@ contract AdministrativeAccessControl is AccessControl, Ownable {
     Supplier[] public suppliers;
 
     constructor(
-        string[] memory _initialBoardMembersNames,
-        address[] memory _initialBoardMembers
+        string[] memory initialBoardMembersNames,
+        address[] memory initialBoardMembers
     ) {
         // Setting initial Board Member roles
-        for (uint256 i = 0; i < _initialBoardMembers.length; i++) {
-            _setupRole(BOARD_MEMBER, _initialBoardMembers[i]);
+        for (uint256 i = 0; i < initialBoardMembers.length; i++) {
+            _setupRole(BOARD_MEMBER, initialBoardMembers[i]);
             boardMembers.push(
                 Board_Member(
-                    _initialBoardMembersNames[i],
-                    _initialBoardMembers[i]
+                    initialBoardMembersNames[i],
+                    initialBoardMembers[i]
                 )
             );
         }
@@ -69,45 +68,45 @@ contract AdministrativeAccessControl is AccessControl, Ownable {
     }
 
     // Verifies if address is a Board Member
-    function verifyBoardMember(address _boardMemberAddress)
+    function verifyBoardMember(address board_Member_Address)
         public
         view
         returns (bool)
     {
-        bool verify = hasRole(BOARD_MEMBER, _boardMemberAddress);
+        bool verify = hasRole(BOARD_MEMBER, board_Member_Address);
         return verify;
     }
 
     // Retrieves BoardMember name based on BoardMember ID
-    function retrieveBoardMember(uint256 _id)
+    function retrieveBoardMember(uint256 id)
         public
         view
         returns (string memory)
     {
-        uint256 index = _id - 1;
+        uint256 index = id - 1;
         return boardMembers[index].name;
     }
 
     // Removes BoardMember by shifting
-    function _revokeBoardMember(uint256 _id, address _boardMemberAddress)
+    function _revokeBoardMember(uint256 id, address board_Member_Address)
         public
         onlyOwner
     {
-        uint256 index = _id - 1;
+        uint256 index = id - 1;
         require(
-            hasRole(BOARD_MEMBER, _boardMemberAddress),
+            hasRole(BOARD_MEMBER, board_Member_Address),
             "ERROR: Account provided is not a Board Member!"
         );
         require(index < boardMembers.length, "ERROR: Index out of bound!");
 
-        _revokeRole(BOARD_MEMBER, _boardMemberAddress);
+        _revokeRole(BOARD_MEMBER, board_Member_Address);
 
         for (uint256 i = index; i < boardMembers.length - 1; i++) {
             boardMembers[i] = boardMembers[i + 1];
         }
         boardMembers.pop();
 
-        emit RevokedSupplier(_id, _boardMemberAddress);
+        emit RevokedSupplier(id, board_Member_Address);
     }
 
     /************** Supplier Role **************/
@@ -140,40 +139,42 @@ contract AdministrativeAccessControl is AccessControl, Ownable {
     }
 
     // Verifies if address is a Supplier
-    function verifySupplier(address _supplierAddress)
+    function verifySupplier(address supplier_address)
         public
         view
         returns (bool)
     {
-        bool verify = hasRole(SUPPLIER_MEMBER, _supplierAddress);
+        bool verify = hasRole(SUPPLIER_MEMBER, supplier_address);
         return verify;
     }
 
     // Retrieves Supplier name based on Supplier ID
-    function retrieveSupplier(uint256 _id) public view returns (string memory) {
-        uint256 index = _id - 1;
+    function retrieveSupplier(uint256 id) public view returns (string memory) {
+        uint256 index = id - 1;
         return suppliers[index].name;
     }
 
     // Removes Supplier by shifting
-    function _revokeSupplier(uint256 _id, address _supplierAddress)
+    function _revokeSupplier(uint256 id, address supplier_address)
         public
         onlyOwner
     {
-        uint256 index = _id - 1;
+        uint256 index = id - 1;
         require(
-            hasRole(SUPPLIER_MEMBER, _supplierAddress),
+            hasRole(SUPPLIER_MEMBER, supplier_address),
             "ERROR: Account provided is not a Supplier!"
         );
         require(index < suppliers.length, "ERROR: Index out of bound!");
 
-        _revokeRole(SUPPLIER_MEMBER, _supplierAddress);
+        _revokeRole(SUPPLIER_MEMBER, supplier_address);
 
         for (uint256 i = index; i < suppliers.length - 1; i++) {
             suppliers[i] = suppliers[i + 1];
         }
         suppliers.pop();
 
-        emit RevokedSupplier(_id, _supplierAddress);
-    } 
+        emit RevokedSupplier(id, supplier_address);
+    }
+
+    
 }

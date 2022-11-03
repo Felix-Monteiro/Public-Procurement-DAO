@@ -93,17 +93,17 @@ contract GovernanceProtocol is
 
     // Administrative Propose
     function AdministrativePropose(
-        address[] memory _targets,
-        uint256[] memory _values,
-        bytes[] memory _calldatas,
-        string memory _description
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        string memory description
     ) public returns (uint256) {
         bool unvalidTarget = false;
         // Verify that contract caller proposes on the right contract
-        for (uint256 i = 0; i < _targets.length; i++) {
+        for (uint256 i = 0; i < targets.length; i++) {
             if (
-                _targets[i] != AdministrativeProcessAddress &&
-                _targets[i] != AdministrativeAccessControlAddress
+                targets[i] != AdministrativeProcessAddress &&
+                targets[i] != AdministrativeAccessControlAddress
             ) {
                 unvalidTarget = true;
                 break;
@@ -122,23 +122,23 @@ contract GovernanceProtocol is
         );
 
         proposalIndex++;
-        return super.propose(_targets, _values, _calldatas, _description);
+        return super.propose(targets, values, calldatas, description);
     }
 
     // Supplier proposes a Service to a specific Recruitment Process
     function supplierPropose(
-        address[] memory _targets,
-        uint256[] memory _values,
-        bytes[] memory _calldatas,
-        string memory _description,
-        string memory _proposalValue
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        string memory description,
+        string memory proposalValue
     ) public returns (uint256) {
         string memory boardContest = administrativeContract.retrieve();
         bool unvalidTarget = false;
 
         // Verify that contract caller proposes on the right contract
-        for (uint256 i = 0; i < _targets.length; i++) {
-            if (_targets[i] != supplierProcessAddress) {
+        for (uint256 i = 0; i < targets.length; i++) {
+            if (targets[i] != supplierProcessAddress) {
                 unvalidTarget = true;
                 break;
             }
@@ -158,26 +158,26 @@ contract GovernanceProtocol is
         // Verify if Proposal corresponds with Board request
         require(
             keccak256(abi.encodePacked((boardContest))) ==
-                keccak256(abi.encodePacked((_proposalValue))),
+                keccak256(abi.encodePacked((proposalValue))),
             "ERROR: The Contest value requested was not found!"
         );
 
         proposalIndex++;
-        return super.propose(_targets, _values, _calldatas, _description);
+        return super.propose(targets, values, calldatas, description);
     }
 
     // Senior Supplier proposes a Feedback Proposal presented to the Board Members
     function seniorSupplierPropose(
-        address[] memory _targets,
-        uint256[] memory _values,
-        bytes[] memory _calldatas,
-        string memory _description
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        string memory description
     ) public returns (uint256) {
         bool unvalidTarget = false;
 
         // Verify that contract caller proposes on the right contract
-        for (uint256 i = 0; i < _targets.length; i++) {
-            if (_targets[i] != seniorSupplierProcessAddress) {
+        for (uint256 i = 0; i < targets.length; i++) {
+            if (targets[i] != seniorSupplierProcessAddress) {
                 unvalidTarget = true;
                 break;
             }
@@ -194,17 +194,16 @@ contract GovernanceProtocol is
         );
 
         proposalIndex++;
-        return super.propose(_targets, _values, _calldatas, _description);
+        return super.propose(targets, values, calldatas, description);
     }
 
     // Votes from Board Members
     function castBoardVoteWithReason(
-        uint256 _proposalId,
-        uint8 _support,
-        string calldata _reason
+        uint256 proposalId,
+        uint8 support,
+        string calldata reason
     ) public virtual returns (uint256) {
         address voter = _msgSender();
-        
         // Verify if Voter is Board Member - Sender requires Governance Tokens
         require(
             administrativeAccessControlContract.verifyBoardMember(msg.sender) ==
@@ -212,7 +211,7 @@ contract GovernanceProtocol is
             "ERROR: Caller is not a Board Member!"
         );
 
-        return _castVote(_proposalId, voter, _support, _reason);
+        return _castVote(proposalId, voter, support, reason);
     }
 
     function retrieveProposalIndex() public view returns (uint256) {
