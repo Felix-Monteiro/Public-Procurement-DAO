@@ -1,0 +1,48 @@
+{
+  "goerli": [
+    "ID: 70314630373231557674140989810551643731537966651359777565591686562622890804042",
+    [
+      "Index: 1",
+      "Function: _newSupplier",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Supplier Name: COPe",
+      "Supplier Address: 0x77eB76c4BDF7B0D5BF44e703ff994e9FCC33552c",
+      "Proposal Description: This is a good Supplier for our company"
+    ],
+    "ID: 60029997415509278452136236062872082958286241790055094210639152922885392582003",
+    [
+      "Index: 2",
+      "Function: _newBoardMember",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Board Member Name: Dr. Jose Felix",
+      "Board Member Address: 0x55076420B231cB4b5b65206Dd869ff1f0b4E6488",
+      "Proposal Description: This is a good Supplier for our company"
+    ],
+    "ID: 110903999167133059762621203458416063353288628981359272884300828300668000779454",
+    [
+      "Index: 3",
+      "Function: _revokeSupplier",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Supplier ID: 1",
+      "Supplier Address: 0x77eB76c4BDF7B0D5BF44e703ff994e9FCC33552c",
+      "Proposal Description: This is a bad Supplier for our company"
+    ],
+    "ID: 21134617838422851869709033469414689930528841336235109779027624529877888645462",
+    [
+      "Index: 4",
+      "Function: _revokeBoardMember",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Board Member ID: 1",
+      "Board Member Address: 0x55076420B231cB4b5b65206Dd869ff1f0b4E6488",
+      "Proposal Description: This is a bad Board Member for our company"
+    ],
+    "ID: 86971406340034745064504765132038678062102838887182896936814299351034764409413",
+    [
+      "Index: 6",
+      "Function: newContest",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Recruitment Contest: New Orthoprosthesis Public Contest",
+      "Contest Description: The Hospital Santa Maria requires a new Service for Orthoprothesis"
+    ]
+  ]
+}

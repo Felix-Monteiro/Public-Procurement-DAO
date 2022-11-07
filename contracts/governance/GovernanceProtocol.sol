@@ -49,28 +49,29 @@ contract GovernanceProtocol is
     GovernorVotesQuorumFraction,
     GovernorTimelockControl
 {
-    // Initializing Administrative Recruitment Contract
-    address AdministrativeProcessAddress =
-        0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9;
-    AdministrativeInterface administrativeContract =
-        AdministrativeInterface(AdministrativeProcessAddress);
-
-    // Initializing Administrative Access Control Contract
+        // Initializing Administrative Access Control Contract
     address AdministrativeAccessControlAddress =
-        0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0;
+        0x9CF3188F799273Da20adD3Fe308F76cc3E20B28D;
     AdministrativeAccessControlInterface administrativeAccessControlContract =
         AdministrativeAccessControlInterface(
             AdministrativeAccessControlAddress
         );
 
+    // Initializing Administrative Recruitment Contract
+    address AdministrativeProcessAddress =
+        0xFD8be0728Bb25f2B8489642056cBC0FA3768f578;
+    AdministrativeInterface administrativeContract =
+        AdministrativeInterface(AdministrativeProcessAddress);
+    
+    // Initializing Senior Supplier Contract
+    address seniorSupplierProcessAddress =
+        0x314C1Bc60Fe9cbf44A7AFC317F17a131d198b96a;
+
     // Initializing Supplier Process Contract
-    address supplierProcessAddress = 0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6;
+    address supplierProcessAddress = 0x3B2D3d7A91592104C6e74625175845Aa1567e2f6;
     SupplierProcessInterface supplierProcessInterface =
         SupplierProcessInterface(supplierProcessAddress);
 
-    address seniorSupplierProcessAddress =
-        0x0165878A594ca255338adfa4d48449f69242Eb8F;
-    
     uint256 private proposalIndex = 0;
 
     constructor(

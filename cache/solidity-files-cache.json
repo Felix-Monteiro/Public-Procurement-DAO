@@ -849,8 +849,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public-Recruitment-DAO-Test-Net/contracts/governance/GovernanceProtocol.sol": {
-      "lastModificationDate": 1667488345221,
-      "contentHash": "aba1d63a8a5d30f70910ebfb3b4ac205",
+      "lastModificationDate": 1667817940659,
+      "contentHash": "ea5da46191f958789e06c3b0820f924d",
       "sourceName": "contracts/governance/GovernanceProtocol.sol",
       "solcConfig": {
         "version": "0.8.9",
