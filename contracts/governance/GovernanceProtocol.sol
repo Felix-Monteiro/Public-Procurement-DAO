@@ -178,7 +178,7 @@ contract GovernanceProtocol is
 
         // Verify that contract caller proposes on the right contract
         for (uint256 i = 0; i < targets.length; i++) {
-            if (targets[i] != seniorSupplierProcessAddress) {
+            if (targets[i] != seniorSupplierProcessAddress && targets[i] != supplierProcessAddress) {
                 unvalidTarget = true;
                 break;
             }
@@ -204,7 +204,6 @@ contract GovernanceProtocol is
         uint8 support,
         string calldata reason
     ) public virtual returns (uint256) {
-        address voter = _msgSender();
         // Verify if Voter is Board Member - Sender requires Governance Tokens
         require(
             administrativeAccessControlContract.verifyBoardMember(msg.sender) ==
@@ -212,7 +211,7 @@ contract GovernanceProtocol is
             "ERROR: Caller is not a Board Member!"
         );
 
-        return _castVote(proposalId, voter, support, reason);
+        return _castVote(proposalId, msg.sender, support, reason);
     }
 
     function retrieveProposalIndex() public view returns (uint256) {

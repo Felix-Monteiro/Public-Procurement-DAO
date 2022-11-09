@@ -43,6 +43,24 @@
       "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
       "Recruitment Contest: New Orthoprosthesis Public Contest",
       "Contest Description: The Hospital Santa Maria requires a new Service for Orthoprothesis"
+    ],
+    "ID: 15391753978247187751794787102381559892056446723622049838621208443767393523550",
+    [
+      "Index: 7",
+      "Function: _newSupplier",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Supplier Name: COPy",
+      "Supplier Address: 0x77eB76c4BDF7B0D5BF44e703ff994e9FCC33552c",
+      "Proposal Description: This is a good Supplier for our company"
+    ],
+    "ID: 65323992727691011432900921501314196739003083398786738217282872031631962532208",
+    [
+      "Index: 8",
+      "Function: _newSupplier",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Supplier Name: COPye",
+      "Supplier Address: 0x77eB76c4BDF7B0D5BF44e703ff994e9FCC33552c",
+      "Proposal Description: This is a good Supplier for our company"
     ]
   ]
 }
