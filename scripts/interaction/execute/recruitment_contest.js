@@ -1,7 +1,9 @@
 const { ethers } = require("hardhat");
+var fs = require('fs');
 const governanceContract = require("../../../artifacts/contracts/governance/GovernanceProtocol.sol/GovernanceProtocol.json");
 const adminRecruitmentContract = require("../../../artifacts/contracts/board_administration/AdministrativeRecruitmentProcess.sol/AdministrativeRecruitmentProcess.json");
 
+const executedProposals = process.env.executedProposals;
 const CONTEST_FUNC = process.env.CONTEST_FUNC;
 const API_KEY = process.env.API_KEY;
 const PRIVATE_KEY = process.env.BOARD_MEMBER_1_PK;
@@ -18,7 +20,7 @@ const administrativeRecruitmentContract = new ethers.Contract(ADMINISTRATIVE_REC
 
 async function executeRecruitment() {
     // User's Input data
-    const proposalId = "";
+    const proposalId = "53990919837042639393027887939663289677542321032706622080646629751938239531859";
     const contest_name = "New Orthoprosthesis Public Contest";
     const proposal_description = "The Hospital Santa Maria requires a new Service for Orthoprothesis";
     

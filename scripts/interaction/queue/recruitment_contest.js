@@ -19,7 +19,7 @@ const administrativeRecruitmentContract = new ethers.Contract(ADMINISTRATIVE_REC
 
 async function queueRecruitment() {
     // User's Input data
-    const proposalId = "";
+    const proposalId = "53990919837042639393027887939663289677542321032706622080646629751938239531859";
     const contest_name = "New Orthoprosthesis Public Contest";
     const proposal_description = "The Hospital Santa Maria requires a new Service for Orthoprothesis";
     

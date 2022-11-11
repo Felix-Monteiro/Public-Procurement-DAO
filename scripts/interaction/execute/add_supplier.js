@@ -3,6 +3,7 @@ const governanceContract = require("../../../artifacts/contracts/governance/Gove
 const adminAccessControlContract = require("../../../artifacts/contracts/board_administration/AdministrativeAccessControl.sol/AdministrativeAccessControl.json");
 var fs = require('fs');
 
+const executedProposals = process.env.executedProposals;
 const SUPPLIER_FUNC = process.env.SUPPLIER_FUNC;
 const API_KEY = process.env.API_KEY;
 const PRIVATE_KEY = process.env.BOARD_MEMBER_1_PK;
@@ -20,7 +21,7 @@ const administrativeAccessControlContract = new ethers.Contract(ADMIN_AC_CONTRAC
 async function executeSupplierMember() {
 
     // User's Input data
-    const proposalId = "";
+    const proposalId = "114485064254143879867786778461320367361008759106913933206864055625476486048250";
     const supplier_name = "Centro Ortopédico da Parede";
     const supplier_address = process.env.SUPPLIER_MEMBER_1;
     const proposal_description = "This is a good Supplier for our company";

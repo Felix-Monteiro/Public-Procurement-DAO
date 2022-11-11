@@ -3,6 +3,7 @@ const governanceContract = require("../../../artifacts/contracts/governance/Gove
 const seniorSupplierContract = require("../../../artifacts/contracts/SeniorSupplierProcess.sol/SeniorSupplierProcess.json");
 var fs = require('fs');
 
+const executedProposals = process.env.executedProposals;
 const FEEDBACK_FUNC = process.env.FEEDBACK_FUNC;
 const API_KEY = process.env.API_KEY;
 const PRIVATE_KEY = process.env.BOARD_MEMBER_1_PK;

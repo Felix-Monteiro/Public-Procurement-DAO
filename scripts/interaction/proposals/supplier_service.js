@@ -25,7 +25,7 @@ async function boardProposeService(functionToCall) {
 
     // User's Input data
     const caller_address = process.env.SUPPLIER_MEMBER_1;
-    const supplier_name = "COP";
+    const supplier_name = "Centro Ortopédico da Parede";
     const contest_name = "New Orthoprosthesis Public Contest";
     const proposal_description = "I Propose to My Company C.O.P. to provide a service to your Public Instituition!";
 
@@ -36,11 +36,12 @@ async function boardProposeService(functionToCall) {
     console.log(`Service Proposal Description:\n  ${proposal_description}`)
     console.log(`Recruitment Contest Identifier:\n  ${contest_name}\n`)
 
-    const proposeTx = await governanceProtocolContract.AdministrativePropose(
+    const proposeTx = await governanceProtocolContract.supplierPropose(
         [supplierProcessServiceContract.address],
         [0],
         [encodedFunctionCall],
-        proposal_description
+        proposal_description,
+        contest_name
     );
 
     const proposeReceipt = await proposeTx.wait();

@@ -11,8 +11,8 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
   checkpoints and have their voting power tracked.
 */
 contract GovernanceToken is ERC20Votes {
-    uint256 public s_maxSupply = 1;
-
+    uint256 public s_maxSupply = 1000000000000000000000000;
+                                 
     constructor()
         ERC20("GovernanceToken", "GT")
         ERC20Permit("GovernanceToken")

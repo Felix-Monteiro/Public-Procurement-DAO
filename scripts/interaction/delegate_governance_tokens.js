@@ -4,7 +4,7 @@ const CONTRACT_ADDRESS = process.env.GOVERNANCE_TOKEN_CONTRACT_ADDRESS;
 const DELEGATED_ACCOUNT = process.env.BOARD_MEMBER_1;
 
 const { ethers } = require("hardhat");
-const contract = require("../artifacts/contracts/governance/GovernanceToken.sol/GovernanceToken.json");
+const contract = require("../../artifacts/contracts/governance/GovernanceToken.sol/GovernanceToken.json");
 
 // Provider - Alchemy
 const alchemyProvider = new ethers.providers.AlchemyProvider(network = "goerli", API_KEY);

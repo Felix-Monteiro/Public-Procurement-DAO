@@ -44,7 +44,7 @@ async function setupContracts() {
     const revokeTx = await timeLock.revokeRole(adminRole, deployer.address);
     await revokeTx.wait();
 
-    console.log("\nRecruitment DAO deployed!");
+    console.log("\nPublic Recruitment DAO deployed!");
 };
 
 setupContracts()

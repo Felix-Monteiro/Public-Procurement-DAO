@@ -19,8 +19,8 @@ const supplierProcessContract = new ethers.Contract(SUPPLIER_CONTRACT_ADDRESS, s
 
 async function queueSupplierService() {
     // User's Input data
-    const proposalId = "";
-    const supplier_name = "COP";
+    const proposalId = "65908872035770777341973726447457749110153957073450315940479581955591728073993";
+    const supplier_name = "Centro Ortopédico da Parede";
     const supplier_address = process.env.SUPPLIER_MEMBER_1;
     const proposal_description = "I Propose to My Company C.O.P. to provide a service to your Public Instituition!";
 

@@ -19,8 +19,8 @@ const administrativeAccessControlContract = new ethers.Contract(ADMIN_AC_CONTRAC
 
 async function queueSupplierMember() {
     // User's Input data
-    const proposalId = "";
-    const supplier_name = "Centro Ortopédico da Parede";
+    const proposalId = "114485064254143879867786778461320367361008759106913933206864055625476486048250";
+    const supplier_name = "Centro Ortopédico da Parede 1";
     const supplier_address = process.env.SUPPLIER_MEMBER_1;
     const proposal_description = "This is a good Supplier for our company";
     const functionToCall = SUPPLIER_FUNC;

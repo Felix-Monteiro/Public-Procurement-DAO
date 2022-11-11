@@ -849,8 +849,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public-Recruitment-DAO-Test-Net/contracts/governance/GovernanceProtocol.sol": {
-      "lastModificationDate": 1667817940659,
-      "contentHash": "ea5da46191f958789e06c3b0820f924d",
+      "lastModificationDate": 1668166186295,
+      "contentHash": "f19e11505fe1f2a14e58a5ba8474928a",
       "sourceName": "contracts/governance/GovernanceProtocol.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -1462,8 +1462,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public-Recruitment-DAO-Test-Net/contracts/governance/GovernanceToken.sol": {
-      "lastModificationDate": 1667488345221,
-      "contentHash": "438dba23c5d6b3fcf6398ab29fdc1d04",
+      "lastModificationDate": 1668079008841,
+      "contentHash": "e4a5b4dd3415cfe578abc1684afdb053",
       "sourceName": "contracts/governance/GovernanceToken.sol",
       "solcConfig": {
         "version": "0.8.9",

@@ -3,6 +3,7 @@ const governanceContract = require("../../../artifacts/contracts/governance/Gove
 const adminAccessControlContract = require("../../../artifacts/contracts/board_administration/AdministrativeAccessControl.sol/AdministrativeAccessControl.json");
 var fs = require('fs');
 
+const executedProposals = process.env.executedProposals;
 const SUPPLIER_RMV_FUNC = process.env.SUPPLIER_RMV_FUNC;
 const API_KEY = process.env.API_KEY;
 const PRIVATE_KEY = process.env.BOARD_MEMBER_1_PK;

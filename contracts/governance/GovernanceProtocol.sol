@@ -51,7 +51,7 @@ contract GovernanceProtocol is
 {
         // Initializing Administrative Access Control Contract
     address AdministrativeAccessControlAddress =
-        0x9CF3188F799273Da20adD3Fe308F76cc3E20B28D;
+        0x9Aa845D6CD7d5F2841299E276e6087CEE23a7d10;
     AdministrativeAccessControlInterface administrativeAccessControlContract =
         AdministrativeAccessControlInterface(
             AdministrativeAccessControlAddress
@@ -59,16 +59,16 @@ contract GovernanceProtocol is
 
     // Initializing Administrative Recruitment Contract
     address AdministrativeProcessAddress =
-        0xFD8be0728Bb25f2B8489642056cBC0FA3768f578;
+        0x67f9feE0faA6Ddc223Bd8ae1081e0ABCe27C1d52;
     AdministrativeInterface administrativeContract =
         AdministrativeInterface(AdministrativeProcessAddress);
     
     // Initializing Senior Supplier Contract
     address seniorSupplierProcessAddress =
-        0x314C1Bc60Fe9cbf44A7AFC317F17a131d198b96a;
+        0x29c60d51d2C70f457708b3dB5f6098675F80bC1e;
 
     // Initializing Supplier Process Contract
-    address supplierProcessAddress = 0x3B2D3d7A91592104C6e74625175845Aa1567e2f6;
+    address supplierProcessAddress = 0x4b1D850CCFa382B0cE2879D5F8527C7C6DA6B088;
     SupplierProcessInterface supplierProcessInterface =
         SupplierProcessInterface(supplierProcessAddress);
 

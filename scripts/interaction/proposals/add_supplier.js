@@ -24,7 +24,7 @@ async function boardProposeSupplier(functionToCall) {
 
   // User's Input data
   const caller_address = process.env.BOARD_MEMBER_1;
-  const supplier_name = "Centro Ortopédico da Parede";
+  const supplier_name = "Centro Ortopédico da Parede 1";
   const supplier_address = process.env.SUPPLIER_MEMBER_1;
   const proposal_description = "This is a good Supplier for our company";
 

@@ -14,11 +14,11 @@ const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRE
 async function main() {
 
     // You could swap this out for the ID you want to use too
-    const proposalId = "65323992727691011432900921501314196739003083398786738217282872031631962532208";
+    const proposalId = "65908872035770777341973726447457749110153957073450315940479581955591728073993";
 
     // 0 = Against, 1 = For, 2 = Abstain for this example
     const voteWay = 1;
-    const reason = "A good new Board Member!";
+    const reason = "A Good contestant!";
 
     console.log("Voting...");
     const voteTx = await governanceProtocolContract.castBoardVoteWithReason(proposalId, voteWay, reason)

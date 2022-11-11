@@ -3,12 +3,13 @@ const governanceContract = require("../../../artifacts/contracts/governance/Gove
 const supplierContract = require("../../../artifacts/contracts/SupplierProcess.sol/SupplierProcess.json");
 var fs = require('fs');
 
+const executedProposals = process.env.executedProposals;
 const SERVICE_FUNC = process.env.SERVICE_FUNC;
 const API_KEY = process.env.API_KEY;
 const PRIVATE_KEY = process.env.BOARD_MEMBER_1_PK;
 const GOVERNANCE_CONTRACT_ADDRESS = process.env.GOVERNANCE_PROTOCOL_CONTRACT_ADDRESS;
 const SUPPLIER_CONTRACT_ADDRESS = process.env.SUPPLIER_CONTRACT_ADDRESS;
-const MIN_DELAY = process.env.MIN_DELAY;
+
 
 // Provider - Alchemy
 const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
@@ -20,8 +21,8 @@ const supplierProcessContract = new ethers.Contract(SUPPLIER_CONTRACT_ADDRESS, s
 
 async function executeSupplierService() {
     // User's Input data
-    const proposalId = "";
-    const supplier_name = "COP";
+    const proposalId = "65908872035770777341973726447457749110153957073450315940479581955591728073993";
+    const supplier_name = "Centro Ortopédico da Parede";
     const supplier_address = process.env.SUPPLIER_MEMBER_1;
     const proposal_description = "I Propose to My Company C.O.P. to provide a service to your Public Instituition!";
 
