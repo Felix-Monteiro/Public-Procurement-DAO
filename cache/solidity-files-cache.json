@@ -849,8 +849,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public-Recruitment-DAO-Test-Net/contracts/governance/GovernanceProtocol.sol": {
-      "lastModificationDate": 1668166186295,
-      "contentHash": "f19e11505fe1f2a14e58a5ba8474928a",
+      "lastModificationDate": 1668598517466,
+      "contentHash": "1ac9258b24fb0a4787a700c8c4ae5c57",
       "sourceName": "contracts/governance/GovernanceProtocol.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -1462,8 +1462,8 @@
       ]
     },
     "/home/thundermarks/Documents/Public-Recruitment-DAO-Test-Net/contracts/governance/GovernanceToken.sol": {
-      "lastModificationDate": 1668079008841,
-      "contentHash": "e4a5b4dd3415cfe578abc1684afdb053",
+      "lastModificationDate": 1668598164231,
+      "contentHash": "314520604420cdfb796583481ae93576",
       "sourceName": "contracts/governance/GovernanceToken.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -1489,12 +1489,14 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol"
+        "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol"
       ],
       "versionPragmas": [
         "^0.8.9"
       ],
       "artifacts": [
+        "AdministrativeAccessControlInterface",
         "GovernanceToken"
       ]
     },

@@ -2,6 +2,14 @@
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+
+interface AdministrativeAccessControlInterface {
+    function verifyBoardMember(address board_Member_Address)
+        external
+        view
+        returns (bool);
+}
 
 /*
   The Governance Token is a standard ERC20 token modified to allow 
@@ -10,17 +18,29 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
   requires users to delegate to themselves in order to activate 
   checkpoints and have their voting power tracked.
 */
-contract GovernanceToken is ERC20Votes {
-    uint256 public s_maxSupply = 1000000000000000000000000;
-                                 
+contract GovernanceToken is ERC20Votes, AccessControl {
+    uint256 public s_maxSupply = 1;
+
+    // Initializing Administrative Access Control Contract
+    address AdministrativeAccessControlAddress =
+        0xd6EafF3Ac29b8453797E537A083772Fd621f37FF;
+    AdministrativeAccessControlInterface administrativeAccessControlContract =
+        AdministrativeAccessControlInterface(
+            AdministrativeAccessControlAddress
+        );
+
     constructor()
         ERC20("GovernanceToken", "GT")
         ERC20Permit("GovernanceToken")
-    {
-        _mint(msg.sender, s_maxSupply);
-    }
+    {}
 
     function _mintToken() public {
+        // Access control for Board Members
+        require(
+            administrativeAccessControlContract.verifyBoardMember(msg.sender) ==
+                true,
+            "ERROR: Caller is not a Board Member!"
+        );
         _mint(msg.sender, s_maxSupply);
         super.delegate(msg.sender);
     }
