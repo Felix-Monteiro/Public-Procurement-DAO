@@ -3,31 +3,30 @@ var fs = require('fs');
 const { readFileSync } = require('fs');
 const governanceContract = require("../../artifacts/contracts/governance/GovernanceProtocol.sol/GovernanceProtocol.json");
 const supplierProcessContract = require("../../artifacts/contracts/SupplierProcess.sol/SupplierProcess.json");
+const question = require("./cli_questions");
 
 const proposalsFileInfo = process.env.proposalsFileInfo;
 const proposalsFile = process.env.proposalsFile;
-
 const SERVICE_FUNC = process.env.SERVICE_FUNC;
 const API_KEY = process.env.API_KEY;
-const PRIVATE_KEY = process.env.SUPPLIER_MEMBER_1_PK;
 const GOVERNANCE_CONTRACT_ADDRESS = process.env.GOVERNANCE_PROTOCOL_CONTRACT_ADDRESS;
 const SUPPLIER_CONTRACT_ADDRESS = process.env.SUPPLIER_CONTRACT_ADDRESS;
 
-// Provider - Alchemy
-const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
-// Signer - Deployer
-const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
-// Contracts Instances
-const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
-const supplierProcessServiceContract = new ethers.Contract(SUPPLIER_CONTRACT_ADDRESS, supplierProcessContract.abi, signer);
-
 async function boardProposeService(functionToCall) {
-
     // User's Input data
-    const caller_address = process.env.SUPPLIER_MEMBER_1;
-    const supplier_name = "Centro Ortopédico da Parede 1";
-    const contest_name = "New Orthoprosthesis Public Contest 2";
-    const proposal_description = "I Propose to My Company C.O.P. to provide a service to your Public Instituition! 2";
+    const PRIVATE_KEY = await question.caller_private_key();
+    const caller_address = await question.caller_address_request();
+    const supplier_name = await question.supplier_name_request();
+    const contest_name = await question.contest_name_request();
+    const proposal_description = await question.proposal_description_request();
+
+    // Provider - Alchemy
+    const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
+    // Signer
+    const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
+    // Contracts Instances
+    const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
+    const supplierProcessServiceContract = new ethers.Contract(SUPPLIER_CONTRACT_ADDRESS, supplierProcessContract.abi, signer);
 
     const encodedFunctionCall = supplierProcessServiceContract.interface.encodeFunctionData(functionToCall, [supplier_name, caller_address]);
 
@@ -78,4 +77,4 @@ boardProposeService(SERVICE_FUNC)
     .catch((error) => {
         console.error(error)
         process.exit(1)
-    })
+    });

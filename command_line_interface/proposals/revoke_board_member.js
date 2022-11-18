@@ -3,30 +3,30 @@ var fs = require('fs');
 const { readFileSync } = require('fs');
 const governanceContract = require("../../artifacts/contracts/governance/GovernanceProtocol.sol/GovernanceProtocol.json");
 const adminAccessControlContract = require("../../artifacts/contracts/board_administration/AdministrativeAccessControl.sol/AdministrativeAccessControl.json");
+const question = require("./cli_questions");
 
 const proposalsFileInfo = process.env.proposalsFileInfo;
 const proposalsFile = process.env.proposalsFile;
 const BOARD_MEMBER_RMV_FUNC = process.env.BOARD_MEMBER_RMV_FUNC;
 const API_KEY = process.env.API_KEY;
-const PRIVATE_KEY = process.env.BOARD_MEMBER_1_PK;
 const GOVERNANCE_CONTRACT_ADDRESS = process.env.GOVERNANCE_PROTOCOL_CONTRACT_ADDRESS;
 const ADMIN_AC_CONTRACT_ADDRESS = process.env.ADMINISTRATIVE_ACCESS_CONTROL_ADDRESS;
 
-// Provider - Alchemy
-const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
-// Signer - Deployer
-const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
-// Contracts Instances
-const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
-const administrativeAccessControlContract = new ethers.Contract(ADMIN_AC_CONTRACT_ADDRESS, adminAccessControlContract.abi, signer);
-
 async function boardProposeRevokeBoardMember(functionToCall) {
-
   // User's Input data
-  const caller_address = process.env.BOARD_MEMBER_1;
-  const board_member_id = 6;
-  const board_member_address = process.env.BOARD_MEMBER_NEW;
-  const proposal_description = "This is a bad Board Member for our company";
+  const PRIVATE_KEY = await question.caller_private_key();
+  const caller_address = await question.caller_address_request();
+  const board_member_id = await question.board_member_id_request();
+  const board_member_address = await question.board_member_address_request();
+  const proposal_description = await question.proposal_description_request();
+
+  // Provider - Alchemy
+  const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
+  // Signer
+  const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
+  // Contracts Instances
+  const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
+  const administrativeAccessControlContract = new ethers.Contract(ADMIN_AC_CONTRACT_ADDRESS, adminAccessControlContract.abi, signer);
 
   const encodedFunctionCall = administrativeAccessControlContract.interface.encodeFunctionData(functionToCall, [board_member_id, board_member_address]);
 

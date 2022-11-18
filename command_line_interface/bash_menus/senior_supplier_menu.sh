@@ -31,7 +31,7 @@ do
             bash bash_menus/senior_supplier_menu.sh
             ;;
         "Return to Main Menu")
-            bash ../main_menu.sh
+            bash ./main_menu.sh
             ;;
         "Quit")
             break

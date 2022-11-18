@@ -9,13 +9,12 @@ async function main() {
     // User's Input proposal index
     const PRIVATE_KEY = await question.caller_private_key();
     const proposalId = await question.proposal_index_request();
-    // 0 = Against, 1 = For, 2 = Abstain for this example
-    const voteWay = parseInt(await question.vote_way_request());
+    const voteWay = parseInt(await question.vote_way_request()); // 0 = Against, 1 = For, 2 = Abstain
     const reason = await question.vote_reason_request();
 
     // Provider - Alchemy
     const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
-    // Signer - Deployer
+    // Signer
     const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
     // Contracts Instances
     const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);

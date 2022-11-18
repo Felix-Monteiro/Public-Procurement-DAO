@@ -13,7 +13,7 @@ async function delegateGovernanceToken() {
 
   // Provider - Alchemy
   const alchemyProvider = new ethers.providers.AlchemyProvider(network = "goerli", API_KEY);
-  // Signer - Deployer
+  // Signer
   const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
   //contract instance
   const governanceTokenContract = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, signer);

@@ -2,31 +2,30 @@ const { ethers } = require("hardhat");
 const governanceContract = require("../../artifacts/contracts/governance/GovernanceProtocol.sol/GovernanceProtocol.json");
 const seniorSupplierContract = require("../../artifacts/contracts/SeniorSupplierProcess.sol/SeniorSupplierProcess.json");
 var fs = require('fs');
+const question = require("./cli_questions");
 
 const executedProposals = process.env.executedProposals;
 const FEEDBACK_FUNC = process.env.FEEDBACK_FUNC;
 const API_KEY = process.env.API_KEY;
-const PRIVATE_KEY = process.env.BOARD_MEMBER_1_PK;
 const GOVERNANCE_CONTRACT_ADDRESS = process.env.GOVERNANCE_PROTOCOL_CONTRACT_ADDRESS;
 const SENIOR_SUPPLIER_CONTRACT_ADDRESS = process.env.SENIOR_SUPPLIER_CONTRACT_ADDRESS;
 
-// Provider - Alchemy
-const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
-// Signer - Deployer
-const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
-// Contracts Instances
-const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
-const seniorSupplierProcessContract = new ethers.Contract(SENIOR_SUPPLIER_CONTRACT_ADDRESS, seniorSupplierContract.abi, signer);
-
-
 async function executeSeniorFeedback() {
     // User's Input data
-    const proposalId = "";
-    const feedback_name = "Centro Ortopedico da Parede"
-    const proposal_description = "I Propose that Senior Suppliers get extra payment in comparison with new Suppliers!";
-    
-    const functionToCall = FEEDBACK_FUNC;
-    const encodedFunctionCall = seniorSupplierProcessContract.interface.encodeFunctionData(functionToCall, [feedback_name]);
+    const PRIVATE_KEY = await question.caller_private_key();
+    const proposalId = await question.proposal_index_request();
+    const feedback_name = await question.feedback_name_request();
+    const proposal_description = await question.proposal_description_request();
+
+    // Provider - Alchemy
+    const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
+    // Signer
+    const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
+    // Contracts Instances
+    const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
+    const seniorSupplierProcessContract = new ethers.Contract(SENIOR_SUPPLIER_CONTRACT_ADDRESS, seniorSupplierContract.abi, signer);
+
+    const encodedFunctionCall = seniorSupplierProcessContract.interface.encodeFunctionData(FEEDBACK_FUNC, [feedback_name]);
     const descriptionHash = ethers.utils.keccak256(ethers.utils.toUtf8Bytes(proposal_description));
     console.log("_______________________________________________________________________________________\n");
     console.log("Executing...");

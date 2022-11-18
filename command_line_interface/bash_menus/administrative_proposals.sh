@@ -51,7 +51,7 @@ do
             ;;
         
         "Return to Main Menu")
-            bash ../main_menu.sh
+            bash ./main_menu.sh
             ;;
         "Quit")
             break

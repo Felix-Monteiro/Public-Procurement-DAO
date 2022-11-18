@@ -15,15 +15,15 @@ const ADMIN_AC_CONTRACT_ADDRESS = process.env.ADMINISTRATIVE_ACCESS_CONTROL_ADDR
 
 async function boardProposeSupplier(functionToCall) {
   // User's Input data
-  const caller_address = await question.caller_address_request();
   const PRIVATE_KEY = await question.caller_private_key();
+  const caller_address = await question.caller_address_request();
   const supplier_name = await question.supplier_name_request();
   const supplier_address = await question.supplier_address_request();
   const proposal_description = await question.proposal_description_request();
 
   // Provider - Alchemy
   const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
-  // Signer - Deployer
+  // Signer
   const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
   // Contracts Instances
   const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);

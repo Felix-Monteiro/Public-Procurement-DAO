@@ -15,7 +15,7 @@ Start by selecting your Role's Menu:
 "
 
 PS3='Please enter your choice: '
-options=("Administrative Menu" "Supplier Menu" "Senior Supplier Menu" "Queue and Execute Menu" "Quit")
+options=("Administrative Menu" "Supplier Menu" "Senior Supplier Menu" "Queue Menu" "Execute Menu" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in

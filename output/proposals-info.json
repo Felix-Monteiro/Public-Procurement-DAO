@@ -26,6 +26,15 @@
       "Board Member ID: 6",
       "Board Member Address: 0x55076420B231cB4b5b65206Dd869ff1f0b4E6488",
       "Proposal Description: This is a bad Board Member for our company"
+    ],
+    "ID: 34293429088872100959017519135118030148557259921790296675780614828229093606344",
+    [
+      "Index: 3",
+      "Function: _newSupplier",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Supplier Name: Centro Ortopedico da Parede",
+      "Supplier Address: 0x77eB76c4BDF7B0D5BF44e703ff994e9FCC33552c",
+      "Proposal Description: I believe this is a good supplier for our company"
     ]
   ]
 }

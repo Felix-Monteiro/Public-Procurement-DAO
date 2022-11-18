@@ -1,32 +1,31 @@
 const { ethers } = require("hardhat");
 const governanceContract = require("../../artifacts/contracts/governance/GovernanceProtocol.sol/GovernanceProtocol.json");
 const adminAccessControlContract = require("../../artifacts/contracts/board_administration/AdministrativeAccessControl.sol/AdministrativeAccessControl.json");
+const question = require("./cli_questions");
 
 const BOARD_MEMBER_RMV_FUNC = process.env.BOARD_MEMBER_RMV_FUNC;
 const API_KEY = process.env.API_KEY;
-const PRIVATE_KEY = process.env.BOARD_MEMBER_1_PK;
 const GOVERNANCE_CONTRACT_ADDRESS = process.env.GOVERNANCE_PROTOCOL_CONTRACT_ADDRESS;
 const ADMIN_AC_CONTRACT_ADDRESS = process.env.ADMINISTRATIVE_ACCESS_CONTROL_ADDRESS;
 const MIN_DELAY = process.env.MIN_DELAY;
 
-// Provider - Alchemy
-const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
-// Signer - Deployer
-const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
-// Contracts Instances
-const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
-const administrativeAccessControlContract = new ethers.Contract(ADMIN_AC_CONTRACT_ADDRESS, adminAccessControlContract.abi, signer);
-
 async function queueRevokeBoardMember() {
-
     // User's Input data
-    const proposalId = "104141202587080950254813826842539847747509628455081837785678888964950404005500";
-    const board_member_id = 6;
-    const board_member_address = process.env.BOARD_MEMBER_NEW;
-    const proposal_description = "This is a bad Board Member for our company";
-    const functionToCall = BOARD_MEMBER_RMV_FUNC;
+    const PRIVATE_KEY = await question.caller_private_key();
+    const proposalId = await question.proposal_index_request();
+    const board_member_id = await question.board_member_id_request();
+    const board_member_address = await question.board_member_address_request();
+    const proposal_description = await question.proposal_description_request();
 
-    const encodedFunctionCall = administrativeAccessControlContract.interface.encodeFunctionData(functionToCall, [board_member_id, board_member_address])
+    // Provider - Alchemy
+    const alchemyProvider = new ethers.providers.AlchemyProvider("goerli", API_KEY);
+    // Signer
+    const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
+    // Contracts Instances
+    const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
+    const administrativeAccessControlContract = new ethers.Contract(ADMIN_AC_CONTRACT_ADDRESS, adminAccessControlContract.abi, signer);
+
+    const encodedFunctionCall = administrativeAccessControlContract.interface.encodeFunctionData(BOARD_MEMBER_RMV_FUNC, [board_member_id, board_member_address])
     const descriptionHash = ethers.utils.keccak256(ethers.utils.toUtf8Bytes(proposal_description));
     console.log("_______________________________________________________________________________________\n");
     console.log("Queueing...")
@@ -37,7 +36,7 @@ async function queueRevokeBoardMember() {
         descriptionHash);
 
     await queueTx.wait();
-    
+
     console.log(`Thank you for Queueing Proposal: ${proposalId}\n`);
     console.log(`Please wait the required minimum delay: ${MIN_DELAY} before executing.\n`);
 };
