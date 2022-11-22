@@ -4,6 +4,15 @@ This prototype presents a Test Net version of an on-chain governance Decentralis
 This DApp is deployed using Hardhat and the Goerli Test Net.
 This version uses JavaScript and Solidity to deploy and interact with the smart contracts and uses a bash script CLI that automates the user interaction with the system.
 
+## Verified Contracts (EtherScan):
+* [TimeLock.sol](https://goerli.etherscan.io/address/0x55D42328e65aDB6E28A4bF92d8fAeB084d985450#code)
+* [GovernanceToken.sol](https://goerli.etherscan.io/address/0x4Fc6f6c19F1ff3E7Cd6E14C6Bf4680ecEE3d4875#code)
+* [GovernanceProtocol.sol](https://goerli.etherscan.io/address/0x3f0A49E5F2B4271e2777Da02845a1a913b2aFEe3#code)
+* [AdministrativeAccessControl.sol](https://goerli.etherscan.io/address/0x8E8b30861A8a35CD9254FF1ccf3d458F4e216271#code)
+* [AdministrativeRecruitmentProcess.sol](https://goerli.etherscan.io/address/0xd58d1afb2C0f5B10a3EA4e2781facf5108291553#code)
+* [SeniorSupplierProcess.sol](https://goerli.etherscan.io/address/0x8cF6314FFa9667D2B148230be0F229e7a1bac5eE#code)
+* [SupplierProcess.sol](https://goerli.etherscan.io/address/0xE8039A79828b029E0e7A7628F79EFD05399b703F#code)
+
 ### Frameworks:
 * Solidity
 * JavaScript
