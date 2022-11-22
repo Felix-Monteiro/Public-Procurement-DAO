@@ -19,8 +19,9 @@ async function main() {
     // Contracts Instances
     const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
 
+    console.log("_______________________________________________________________________________________\n");
     console.log("Voting...");
-    const voteTx = await governanceProtocolContract.castBoardVoteWithReason(proposalId, voteWay, reason)
+    const voteTx = await governanceProtocolContract.castBoardVoteWithReason(proposalId, voteWay, reason);
     const voteTxReceipt = await voteTx.wait();
     console.log(voteTxReceipt.events[0].args.reason);
     const proposalState = await governanceProtocolContract.state(proposalId);

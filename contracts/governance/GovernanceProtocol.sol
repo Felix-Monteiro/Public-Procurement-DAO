@@ -50,25 +50,26 @@ contract GovernanceProtocol is
     GovernorTimelockControl
 {
     // Initializing Administrative Access Control Contract
-    address AdministrativeAccessControlAddress =
-        0xd6EafF3Ac29b8453797E537A083772Fd621f37FF;
+    address constant AdministrativeAccessControlAddress =
+        0x8E8b30861A8a35CD9254FF1ccf3d458F4e216271;
     AdministrativeAccessControlInterface administrativeAccessControlContract =
         AdministrativeAccessControlInterface(
             AdministrativeAccessControlAddress
         );
 
     // Initializing Administrative Recruitment Contract
-    address AdministrativeProcessAddress =
-        0x7F324B1BD2879cb1Ba33956ABaED0470cc35B8Dd;
+    address constant AdministrativeProcessAddress =
+        0xd58d1afb2C0f5B10a3EA4e2781facf5108291553;
     AdministrativeInterface administrativeContract =
         AdministrativeInterface(AdministrativeProcessAddress);
     
     // Initializing Senior Supplier Contract
-    address seniorSupplierProcessAddress =
-        0x03DF5fFAd4ddD41c0FB0177642583C6262E567f4;
+    address constant seniorSupplierProcessAddress =
+        0x8cF6314FFa9667D2B148230be0F229e7a1bac5eE;
 
     // Initializing Supplier Process Contract
-    address supplierProcessAddress = 0xC60494DD21B34EEA5A6D1A7b331373F2D156ACFa;
+    address constant supplierProcessAddress = 
+        0xE8039A79828b029E0e7A7628F79EFD05399b703F;
     SupplierProcessInterface supplierProcessInterface =
         SupplierProcessInterface(supplierProcessAddress);
 

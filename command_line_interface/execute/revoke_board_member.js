@@ -2,7 +2,7 @@ var fs = require('fs');
 const { ethers } = require("hardhat");
 const governanceContract = require("../../artifacts/contracts/governance/GovernanceProtocol.sol/GovernanceProtocol.json");
 const adminAccessControlContract = require("../../artifacts/contracts/board_administration/AdministrativeAccessControl.sol/AdministrativeAccessControl.json");
-const question = require("./cli_questions");
+const question = require("../proposals/cli_questions");
 
 const executedProposals = process.env.executedProposals;
 const BOARD_MEMBER_RMV_FUNC = process.env.BOARD_MEMBER_RMV_FUNC;

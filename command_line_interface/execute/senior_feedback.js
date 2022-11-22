@@ -2,7 +2,7 @@ const { ethers } = require("hardhat");
 const governanceContract = require("../../artifacts/contracts/governance/GovernanceProtocol.sol/GovernanceProtocol.json");
 const seniorSupplierContract = require("../../artifacts/contracts/SeniorSupplierProcess.sol/SeniorSupplierProcess.json");
 var fs = require('fs');
-const question = require("./cli_questions");
+const question = require("../proposals/cli_questions");
 
 const executedProposals = process.env.executedProposals;
 const FEEDBACK_FUNC = process.env.FEEDBACK_FUNC;

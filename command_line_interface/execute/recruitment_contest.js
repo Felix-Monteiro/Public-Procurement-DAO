@@ -2,7 +2,7 @@ const { ethers } = require("hardhat");
 var fs = require('fs');
 const governanceContract = require("../../artifacts/contracts/governance/GovernanceProtocol.sol/GovernanceProtocol.json");
 const adminRecruitmentContract = require("../../artifacts/contracts/board_administration/AdministrativeRecruitmentProcess.sol/AdministrativeRecruitmentProcess.json");
-const question = require("./cli_questions");
+const question = require("../proposals/cli_questions");
 
 const executedProposals = process.env.executedProposals;
 const CONTEST_FUNC = process.env.CONTEST_FUNC;
@@ -42,7 +42,8 @@ async function executeRecruitment() {
     proposalsInfo["goerli"].push("ID: " + proposalId.toString(),
         ["Index: " + proposalId.toString(), "Function: " + CONTEST_FUNC.toString(), "Passed"]);
     fs.writeFileSync(executedProposals, JSON.stringify(proposalsInfo, null, 2));
-
+    
+    console.log(`Thank you for Executing Proposal: ${proposalId}\n`);
     console.log(`The Public Instituition requires the service: ${await administrativeRecruitmentContract.retrieve()}`)
 };
 

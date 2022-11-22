@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 const governanceContract = require("../../artifacts/contracts/governance/GovernanceProtocol.sol/GovernanceProtocol.json");
 const adminAccessControlContract = require("../../artifacts/contracts/board_administration/AdministrativeAccessControl.sol/AdministrativeAccessControl.json");
-const question = require("./cli_questions");
+const question = require("../proposals/cli_questions");
 
 const BOARD_MEMBER_RMV_FUNC = process.env.BOARD_MEMBER_RMV_FUNC;
 const API_KEY = process.env.API_KEY;

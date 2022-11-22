@@ -27,13 +27,13 @@ async function proposeFeedback(functionToCall) {
     const governanceProtocolContract = new ethers.Contract(GOVERNANCE_CONTRACT_ADDRESS, governanceContract.abi, signer);
     const seniorSupplierFeedbackContract = new ethers.Contract(SENIOR_SUPPLIER_CONTRACT_ADDRESS, seniorSupplierProcessContract.abi, signer);
 
-    const encodedFunctionCall = seniorSupplierFeedbackContract.interface.encodeFunctionData(functionToCall, [feedback_name, caller_address]);
+    const encodedFunctionCall = seniorSupplierFeedbackContract.interface.encodeFunctionData(functionToCall, [feedback_name]);
 
     console.log("_______________________________________________________________________________________\n");
     console.log(`Proposing Function: ${functionToCall} on ${seniorSupplierFeedbackContract.address} with Name: ${[feedback_name]}`);
     console.log(`Feedback Description:\n  ${proposal_description}\n`);
 
-    const proposeTx = await governanceProtocolContract.AdministrativePropose(
+    const proposeTx = await governanceProtocolContract.seniorSupplierPropose(
         [seniorSupplierFeedbackContract.address],
         [0],
         [encodedFunctionCall],
