@@ -1,3 +1,22 @@
 {
-  "goerli": []
+  "goerli": [
+    "ID: 93036788578190302371300238694249070700215602194729317014604359861220923065772",
+    [
+      "Index: 0",
+      "Function: _newSupplier",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Supplier Name: Ortopedia Famoes",
+      "Supplier Address: 0xa1307f9FB139F16F2A33B9E217cE148D750cFB26",
+      "Proposal Description: This appears to be a good supplier for our company!"
+    ],
+    "ID: 80240943904326760542922253573940340460279224521945282713176927163187545449945",
+    [
+      "Index: 1",
+      "Function: _revokeSupplier",
+      "Caller Address: 0x093635E2f81eD85B78d1861EA6E95F3738363BFA",
+      "Supplier ID: 1",
+      "Supplier Address: 0xa1307f9FB139F16F2A33B9E217cE148D750cFB26",
+      "Proposal Description: It turned out to be a bad supplier!"
+    ]
+  ]
 }

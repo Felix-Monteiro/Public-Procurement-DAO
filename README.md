@@ -1,4 +1,4 @@
-# Public-Recruitment-DAO-Test-Net
+# Public-Recruitment-DAO
 
 This prototype presents a Test Net version of an on-chain governance Decentralised Autonomous Organisation (DAO) used as the bridge between all participating parties of a Public Recruitment Contest.
 This DApp is deployed using Hardhat and the Goerli Test Net.
@@ -48,3 +48,4 @@ This version uses JavaScript and Solidity to deploy and interact with the smart 
         5. Execute
 
 - It is recommended to Delegate GT tokens to the Voting Account before each vote in order to activate checkpoints and have voting power tracket. Each Delegation provides 1 GT to the Voting Account.
+- In the deployed version, the voting period is set for 12 blocks, approximately 3 minutes in the Goerli test net.
