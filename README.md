@@ -20,7 +20,7 @@ This version uses JavaScript and Solidity to deploy and interact with the smart 
 * [Openzeppelin](https://www.openzeppelin.com/)
 
 ### TestNet:
-* To communicate with the Goerli Test Net we use [Alchemy](https://www.alchemy.com/), an API that allows us to communicate with the Ethereum chain without having to run our own nodes.
+* To communicate with the Goerli Test Net we use [Alchemy](https://www.alchemy.com/), a Node Provider that allows us to communicate with the Ethereum chain without having to run our own nodes.
 
 ## Requirements:
 * Hardhat
