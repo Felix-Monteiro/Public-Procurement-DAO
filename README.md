@@ -31,7 +31,7 @@ This version uses JavaScript and Solidity to deploy and interact with the smart 
 * Yarn
 
 ## Setup:
-1. git clone https://github.com/Felix-Saraiva/Public-Recruitment-DAO.git
+1. git clone https://github.com/Felix-Monteiro/Public-Recruitment-DAO.git
 2. yarn
 3. yarn hardhat compile
 4. cd command_line_interface
