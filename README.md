@@ -1,6 +1,6 @@
-# Public-Recruitment-DAO
+# Public-Procurement-DAO
 
-This prototype presents a Test Net version of an on-chain governance Decentralised Autonomous Organisation (DAO) used as the bridge between all participating parties of a Public Recruitment Contest.
+This prototype presents a Test Net version of an on-chain governance Decentralised Autonomous Organisation (DAO) used as the bridge between all participating parties of a Public Procurement Contest.
 This DApp is deployed using Hardhat and the Goerli Test Net.
 This version uses JavaScript and Solidity to deploy and interact with the smart contracts and uses a bash script CLI that automates the user interaction with the system.
 
