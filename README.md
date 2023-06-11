@@ -49,3 +49,6 @@ This version uses JavaScript and Solidity to deploy and interact with the smart 
 
 - It is recommended to Delegate GT tokens to the Voting Account before each vote in order to activate checkpoints and have voting power tracket. Each Delegation provides 1 GT to the Voting Account.
 - In the deployed version, the voting period is set for 12 blocks, approximately 3 minutes in the Goerli test net.
+
+## DEMO Video:
+[Blockchain-based Public Recruitment Decentralised Autonomous Organisation (DAO)](https://www.youtube.com/watch?v=R1cmpUbmazc "Blockchain-based Public Recruitment Decentralised Autonomous Organisation (DAO)")
